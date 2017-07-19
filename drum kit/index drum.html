@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Drum kit </title>
+<meta charset="utf-8">
+    		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    		<meta name="viewport" content="width=device-width, initial-scale=1">	
+
+			  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>			
+		<!--Custom css file-->
+		<link rel="stylesheet" href="css/styles.css">
+		<!--Bootstrap css-->
+		<link rel="stylesheet" href="css/bootstrap.css">
+
+<link rel="stylesheet"  type="text/css" href="main drum.css">
+ 
+</head>
+<body><button><a href="../index.html">back</a> </button>
+                        
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                      </ol>
+
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner" role="listbox"> 
+                        <div class="item active">
+                          <img src="images/Capture.jpg" alt="...">
+                        </div>
+						
+                        <div class="item">
+                          <img src="images/1134464.png" alt="...">
+                        </div>
+						
+						<div class="item">
+                          <img src="images/Blue-Drums-HD-Wallpaper.jpg" alt="...">
+                        </div>
+						
+						<div class="item">
+                          <img src="images/th (1).jpg" alt="...">
+                        </div>
+						
+						<div class="item">
+                          <img src="images/7725b56942922b00bdfd7d1c59b2e0cb.jpg" alt="...">
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+<div class="position">
+<div class="keys">
+<div data-key="65" class="key">
+<kbd>A</kbd>
+<span class="sound">clap</span>
+</div>
+
+<div data-key="83" class="key">
+<kbd>S</kbd>
+<span class="sound">hihat</sound>
+</div>
+
+<div data-key="68" class="key">
+<kbd>D</kbd>
+<span class="sound">kick</span>
+</div>
+
+<div data-key="70" class="key">
+<kbd>F</kbd>
+<span class="sound">openhat</span>
+</div>
+
+<div data-key="71" class="key">
+<kbd>G</kbd>
+<span class="sound">boom</span>
+</div>
+
+
+<div data-key="72" class="key">
+<kbd>H</kbd>
+<span class="sound">ride</span>
+</div>
+
+<div data-key="74" class="key">
+<kbd>J</kbd>
+<span class="sound">snare</span>
+</div>
+
+<div data-key="75" class="key">
+<kbd>K</kbd>
+<span class="sound">tom</span>
+</div>
+
+<div data-key="76" class="key">
+<kbd>L</kbd>
+<span class="sound">tink</span>
+</div>
+</div>
+</div>
+
+<audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+<script>
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+ 
+  $('body').on('keyup',function(event){
+				$('.key').removeClass('playing')
+				});
+</script>
+<script src="star.js"></script>
+
+</body>
+</html>
